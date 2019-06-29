@@ -11,6 +11,7 @@ node('master'){
         }
 
         stage('Build do projeto'){
+            sh '''
             sh 'sudo ./gradlew build'          
             sh 'sudo ./gradlew docker'
         }
