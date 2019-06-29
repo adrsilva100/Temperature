@@ -11,8 +11,8 @@ node('master'){
         }
 
         stage('Build do projeto'){
-            sh './gradlew build'          
-            sh './gradlew docker'
+            sh 'sudo ./gradlew build'          
+            sh 'sudo ./gradlew docker'
         }
 
         stage('Stop da aplicação em execucao'){
@@ -20,7 +20,6 @@ node('master'){
         }
 
         stage('Start da nova versao'){
-            sh 
             sh 'sudo docker build --tag=temperature .' 
             sh 'sudo docker run -d --name temperature -p 9052:9052 temperature' 
         }
